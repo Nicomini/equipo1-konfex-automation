@@ -21,11 +21,11 @@ test.describe('Telas - flujo feliz de creación', () => {
         // 1) Click en "Agregar" en la página /materia-prima/tela
         await telaPage.agregarTela();
 
-        // 2) Sincronizar: o por URL...
-        await page.waitForURL('**/materia-prima/tela/crear-tela', { timeout: 10000 });
+        // 2) URL
+        await page.waitForURL('**/materia-prima/tela/crear', { timeout: 10000 });
 
-        // ...o por el primer campo del formulario:
-        await expect(page.locator('#material')).toBeVisible();
+        //   O por el primer campo del formulario:
+        await expect(page.locator('span:has-text("Agregar")')).toBeVisible();
 
         // 3) Completar el form
         await addTelaPage.crearTela({

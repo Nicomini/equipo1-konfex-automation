@@ -22,7 +22,8 @@ export class LoginPage {
 
     // Pantalla Login
     async goto() {
-        await this.page.goto('https://konfex-web-app.vercel.app/');
+        await this.page.goto('/');
+
     }
 
     // Flujo feliz de login

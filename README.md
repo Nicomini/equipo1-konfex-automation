@@ -30,4 +30,4 @@ El archivo 'playwritght.config.ts' contiene toda la base de nuestra configuracio
 
 Estoy utilizando 'Playwright & Typescript' con Windsurf y ayuda de chatGPT 5.1 y usando GitHub para el repositorio.
 
-
+El flujo de calculadora por el momento falla al cargar pero por una cuestion de la app que no registra el producto agregado pero llega hasta el final.

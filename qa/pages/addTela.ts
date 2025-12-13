@@ -9,7 +9,7 @@ export interface DatosTela {
     colors: string;
     supplier: string;
     totalPrice: string;
-    imagenPath?: string; // solo el nombre del archivo, ej: "konfex.png"
+    imagenPath?: string;
 }
 
 export class AddTelaPage {
@@ -25,14 +25,14 @@ export class AddTelaPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.material = page.locator('#material');
-        this.anchoRollo = page.locator('#rollWidth');
-        this.weight = page.locator('#weight');
-        this.colors = page.locator('#colors');
-        this.supplier = page.locator('#supplier');
-        this.totalPrice = page.locator('#totalPrice');
+        this.material = page.getByPlaceholder('Algodón Premium');
+        this.anchoRollo = page.getByPlaceholder('1.70');
+        this.weight = page.getByPlaceholder('500');
+        this.colors = page.getByPlaceholder('Rojo, Azul, Negro');
+        this.supplier = page.getByPlaceholder('Textil S.A.');
+        this.totalPrice = page.getByPlaceholder('350.5');
 
-        // 👉 input real de subida de archivo
+        // Input donde se carga la imagen
         this.inputFile = page.locator('input[type="file"]');
 
         this.guardar = page.getByRole('button', { name: 'Guardar' });
@@ -44,11 +44,8 @@ export class AddTelaPage {
     }
 
     async subirImagen(imagenPath?: string) {
-        // Carpeta fixtures real: ...\qa\fixtures
         const fixturesDir = path.resolve(__dirname, '..', 'fixtures');
 
-        // Si me pasás 'konfex.png', 'fixtures/konfex.png' o 'qa/fixtures/konfex.png',
-        // me quedo SOLO con el nombre del archivo: 'konfex.png'
         const filename = imagenPath ? path.basename(imagenPath) : 'konfex.png';
 
         const finalPath = path.resolve(fixturesDir, filename);

@@ -1,33 +1,74 @@
-# equipo1-konfex-automation
-Repositorio que sera utilizado para las automatizaciones de la app KONFEX - equipo 1.
+# Proyecto de Automatización QA – Konfex
+
+Automatización de pruebas End-to-End para la plataforma **Konfex**, enfocada en validar flujos críticos del negocio desde el frontend hasta la integración con servicios.
+
+---
+
+## Objetivo del Proyecto
+- Garantizar la calidad de los flujos principales
+- Reducir regresiones en cada release
+- Integrar pruebas automáticas al pipeline CI/CD
+
+---
+
+## Stack Tecnológico
+- Node.js
+- Playwright
+- TypeScript
+- GitHub Actions
+- Reportes HTML
+
+---
+
+## Estructura del Proyecto
+src/
+├── pages/ # Page Object Model
+├── tests/ # Casos de prueba
+├── fixtures/ # Datos de prueba
+├── utils/ # Helpers
+└── config/ # Configuraciones
+
+---
+
+## Prerrequisitos
+- Node.js >= 18
+- npm o yarn
+- Git
+
+---
+
+## Instalación de dependencias
+
+Clonar el repositorio:
+```bash
+git clone https://github.com/usuario/qa-automation-playwright.git
+cd qa-automation-playwright
+
+
+## Ejecuccion de los tests
+
+# Corre todas las pruebas
+npx playwright test
+
+# Corre prueba especifica
+npx playwright test tests/login.spec.ts
+
+
+# Correr en modo headed
+npx playwright test --headed
+
+# Al correr la prueba y ver el report
+npx playwright show-report
+
+# La ruta
+/reports/html-report/
+
+# .env
+
+BASE_URL=https://surprising-wholeness-production.up.railway.app
+USER_EMAIL=testqa@example.com
+USER_PASSWORD=testQA1!
 
 
 
-Bueno para realizar esta automatizacion lo hice orientado a objetos ya que de esta manera le da más escabilidad para un futuro.
 
-Cuenta con las siguientes carpetas :
-
--Fixtures: Es la carpeta para agregar imagenes que pueden ser utilizadas para pushearlas cuando necesitemos cargar alguna imagen.
-
--Pages: Es una de las importantes ya que en esta carpeta tenemos todos los locators ordenados paso por paso y con comentarios.
- Dentro de esta carpeta van a ver archivos '.ts' de cada pantalla de la app.
- Entonces si quieren agregar un nuevo locator solo tienen que ir a la carpeta pages y agregar el locator en el archivo correspondiente.
- O si algun componente cambia en la app directamente podes cambiarlo en estos archivos y se cambiar en todos lados.
-
- La prueba 'addTela' la hice con un formato diferente para probar pero el form se completa con los datos del 'test' y no del 'Page'.
-
--Reports : Es donde se crean reportes en formato 'HTML'.
-
--Test : En la carpeta test claramente estaran todos los tests que se van automatizar que gracias a la orientacion a objetos se puede reutilizar el codigo de los locators y asi queda un test super limpio.
-        Ejemplo para utilizar en consola y ejecutarlos : npx playwright test calculadora.spec.ts --project="Mobile Chromium - Pixel 5"
-
-
-El archivo 'playwritght.config.ts' contiene toda la base de nuestra configuracion con eso podemos colocar la BASE_URL para que inicie la app sin tener que reutilizar la URL de la web y tambien esta configurado para que no se sobrescriban los reportes y que queden con un TIMESTAMP.
-
-
-
-
-
-Estoy utilizando 'Playwright & Typescript' con Windsurf y ayuda de chatGPT 5.1 y usando GitHub para el repositorio.
-
-El flujo de calculadora por el momento falla al cargar pero por una cuestion de la app que no registra el producto agregado pero llega hasta el final.
